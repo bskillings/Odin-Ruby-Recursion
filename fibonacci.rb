@@ -1,4 +1,4 @@
-#iteration: works
+#iteration: works, prints out whole list
 def fibs(n)
 	fib_array = []
 	0.upto(n) do |i|
@@ -18,6 +18,8 @@ def fibs_rec(n)
 end
 
 puts fibs(5)
-puts fibs_rec(5)
+0.upto(5) {|i| puts fibs_rec(i)}
 puts fibs(6)
-puts fibs_rec(6)
+0.upto(6) {|i| puts fibs_rec(i)}
+
+#I am indebted to Marina Sergeyeva for the idea to just put the upto outside the darn fibs_rec
