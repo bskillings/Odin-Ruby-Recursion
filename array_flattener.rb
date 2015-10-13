@@ -1,15 +1,27 @@
-def flatten_array(array)
-	new_array = []
-	array.each do |i| 
-		if i.kind_of?(Array)
-			flatten_array(i)
-		end 
-	new_array.push(i)
+class ArrayFlattener
+
+	def initialize(array_to_flatten)
+		print "#{array_to_flatten}\r\n"
+		@result = []
+		flatten_array(array_to_flatten)
+		print "#{@result}\r\n"
 	end
-	new_array
+
+
+	def flatten_array(array)
+		array.each do |i| 
+			if i.kind_of?(Array)
+				flatten_array(i)
+			else
+				@result.push(i)
+			end 		
+			
+		end				
+	end
+
 end
 
-puts flatten_array([[1, 2], [3, 4]])
-puts flatten_array([[1, [8, 9]], [3, 4]])
+try_me_1 = ArrayFlattener.new([[1, 2], [3, 4]])
+try_me_2 = ArrayFlattener.new([[1, [8, 9]], [3, 4]])
 
-#I think this is working
+#turns out this isn't working after all
